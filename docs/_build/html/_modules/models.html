@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>models &#8212; WGUPS ROUTING PROGRAM  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for models</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">util</span>
+
+
+<div class="viewcode-block" id="Package"><a class="viewcode-back" href="../models.html#models.Package">[docs]</a><span class="k">class</span> <span class="nc">Package</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a package</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    package_id : str</span>
+<span class="sd">        The id of the package</span>
+
+<span class="sd">    address_id : str</span>
+<span class="sd">        The id of the address of the package delivery destination</span>
+
+<span class="sd">    city : str</span>
+<span class="sd">        The city of the package delivery destination</span>
+
+<span class="sd">    state: str</span>
+<span class="sd">        The state of the package delivery destination</span>
+
+<span class="sd">    zip_code : str</span>
+<span class="sd">        the zip code of the package delivery destination</span>
+
+<span class="sd">    delivery_deadline : str</span>
+<span class="sd">        The time when the package needs to be delivered</span>
+
+<span class="sd">    weight : str</span>
+<span class="sd">        The weight of the package</span>
+
+<span class="sd">    special_notes : str</span>
+<span class="sd">        Special notes about the package delivery</span>
+
+<span class="sd">    status : str</span>
+<span class="sd">        The status of the package during the delivery package</span>
+
+<span class="sd">    delivered_time : str</span>
+<span class="sd">        The time when the package was delivered</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package_id</span><span class="p">,</span> <span class="n">address_id</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">zip_code</span><span class="p">,</span> <span class="n">delivery_deadline</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">special_notes</span><span class="p">,</span>
+                 <span class="n">status</span><span class="o">=</span><span class="s1">&#39;at the hub&#39;</span><span class="p">,</span> <span class="n">delivered_time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructs all the necessary attributes for the person object.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            package_id : str</span>
+<span class="sd">                The id of the package</span>
+
+<span class="sd">            address_id : str</span>
+<span class="sd">                The id of the address of the package delivery destination</span>
+
+<span class="sd">            city : str</span>
+<span class="sd">                The city of the package delivery destination</span>
+
+<span class="sd">            state: str</span>
+<span class="sd">                The state of the package delivery destination</span>
+
+<span class="sd">            zip_code : str</span>
+<span class="sd">                the zip code of the package delivery destination</span>
+
+<span class="sd">            delivery_deadline : str</span>
+<span class="sd">                The time when the package needs to be delivered</span>
+
+<span class="sd">            weight : str</span>
+<span class="sd">                The weight of the package</span>
+
+<span class="sd">            special_notes : str</span>
+<span class="sd">                Special notes about the package delivery</span>
+
+<span class="sd">            status : str</span>
+<span class="sd">                The status of the package during the delivery package</span>
+
+<span class="sd">            delivered_time : str</span>
+<span class="sd">                The time when the package was delivered</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">package_id</span> <span class="o">=</span> <span class="n">package_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address_id</span> <span class="o">=</span> <span class="n">address_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="o">=</span> <span class="n">zip_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delivery_deadline</span> <span class="o">=</span> <span class="n">delivery_deadline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">special_notes</span> <span class="o">=</span> <span class="n">special_notes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delivered_time</span> <span class="o">=</span> <span class="n">delivered_time</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">csv_reader</span>
+        <span class="n">address</span> <span class="o">=</span> <span class="n">csv_reader</span><span class="o">.</span><span class="n">convert_address_id_to_address</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address_id</span><span class="p">))</span>
+        <span class="n">statement</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Package ID: </span><span class="si">{self.package_id}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;Delivery Address: </span><span class="si">{address}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;Delivery Deadline: </span><span class="si">{self.delivery_deadline}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;Delivery City: </span><span class="si">{self.city}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;Delivery Zip: </span><span class="si">{self.zip_code}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;Package Weight: </span><span class="si">{self.weight}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;Delivery Status: </span><span class="si">{self.status}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="s2">&quot;Delivered Time: </span><span class="si">{self.delivered_time}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="n">address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">statement</span></div>
+
+
+<div class="viewcode-block" id="Destination"><a class="viewcode-back" href="../models.html#models.Destination">[docs]</a><span class="k">class</span> <span class="nc">Destination</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a destination</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    destination_id : str</span>
+<span class="sd">        The id of the destination</span>
+
+<span class="sd">    destination_name : str</span>
+<span class="sd">        The name of the destination</span>
+
+<span class="sd">    destination_address : str</span>
+<span class="sd">        the address of the destination</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination_id</span><span class="p">,</span> <span class="n">destination_name</span><span class="p">,</span> <span class="n">destination_address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destination_ID</span> <span class="o">=</span> <span class="n">destination_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">destination_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">destination_address</span></div>
+
+
+<div class="viewcode-block" id="Truck"><a class="viewcode-back" href="../models.html#models.Truck">[docs]</a><span class="k">class</span> <span class="nc">Truck</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent a Delivery Truck</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    load : list</span>
+<span class="sd">        A list of package that the truck need to delivery</span>
+
+<span class="sd">    route : list</span>
+<span class="sd">        The list of stops the truck needs to travel to in order</span>
+
+<span class="sd">    miles_traveled : float</span>
+<span class="sd">        The total amount of miles the truck traveled</span>
+
+<span class="sd">    speed : int</span>
+<span class="sd">        The speed of the truck</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    add_miles_traveled(miles: float):</span>
+<span class="sd">        Adds miles to the truck&#39;s miles_traveled attribute</span>
+
+<span class="sd">    calculate_time_traveled(miles_traveled):</span>
+<span class="sd">        Calculated the amount of time it took to travel the miles_traveled</span>
+
+<span class="sd">    reload_truck(load, route):</span>
+<span class="sd">        reloads truck with a new load and route if the truck has another load to delivery</span>
+
+<span class="sd">    deliver_package():</span>
+<span class="sd">        delivers all the packages in the load to their destination</span>
+
+<span class="sd">    load_truck(load):</span>
+<span class="sd">        Once the load is on the truck, the packages status are changed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">route</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructs all the necessary attributes for the truck object.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        load : list</span>
+<span class="sd">            List of packages</span>
+
+<span class="sd">        route : list</span>
+<span class="sd">            List of stops the truck has to deliver packages to in order</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_truck</span><span class="p">(</span><span class="n">load</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="n">route</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">miles_traveled</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_time_traveled</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">18</span>
+
+<div class="viewcode-block" id="Truck.add_miles_traveled"><a class="viewcode-back" href="../models.html#models.Truck.add_miles_traveled">[docs]</a>    <span class="k">def</span> <span class="nf">add_miles_traveled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds miles to the truck&#39;s miles_traveled attribute.</span>
+<span class="sd">        The runtime is O(1)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        miles : float</span>
+<span class="sd">            miles traveled to add to total</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">miles_traveled</span> <span class="o">+=</span> <span class="n">miles</span></div>
+
+<div class="viewcode-block" id="Truck.calculate_time_traveled"><a class="viewcode-back" href="../models.html#models.Truck.calculate_time_traveled">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_time_traveled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miles_traveled</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculated the amount of time it took to travel the miles_traveled.</span>
+<span class="sd">        The runtime is O(1).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        miles_traveled : float</span>
+<span class="sd">            The total amount of miles the truck traveled</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        time_traveled : int</span>
+<span class="sd">            Time it took to travel the miles_traveled</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">time_traveled</span> <span class="o">=</span> <span class="p">(</span><span class="n">miles_traveled</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">speed</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3600.00</span>
+        <span class="k">return</span> <span class="n">time_traveled</span></div>
+
+<div class="viewcode-block" id="Truck.reload_truck"><a class="viewcode-back" href="../models.html#models.Truck.reload_truck">[docs]</a>    <span class="k">def</span> <span class="nf">reload_truck</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">route</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reloads truck with a new load and route if the truck has another load to delivery.</span>
+<span class="sd">        The runtime is O(n).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        load : list</span>
+<span class="sd">            A list of package that the truck need to delivery</span>
+
+<span class="sd">        route : list</span>
+<span class="sd">            The list of stops the truck needs to travel to in order</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="n">route</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_truck</span><span class="p">(</span><span class="n">load</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">load</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">package</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Truck.deliver_package"><a class="viewcode-back" href="../models.html#models.Truck.deliver_package">[docs]</a>    <span class="k">def</span> <span class="nf">deliver_package</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delivers all the packages in the load to their destination.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># import csv_reader inside method to avoid circular import error</span>
+        <span class="kn">import</span> <span class="nn">csv_reader</span>
+
+        <span class="c1"># the hub</span>
+        <span class="n">hub</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># current location of truck</span>
+        <span class="n">current_location</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">stop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">route</span><span class="p">:</span>
+
+            <span class="c1"># calculates the distance between the current location and next stop</span>
+            <span class="n">distance_traveled</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">csv_reader</span><span class="o">.</span><span class="n">distance_lookup</span><span class="p">(</span><span class="n">current_location</span><span class="p">,</span> <span class="n">stop</span><span class="p">))</span>
+
+            <span class="c1"># adds distance traveled to truck total miles traveled</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">miles_traveled</span> <span class="o">+=</span> <span class="n">distance_traveled</span>
+
+            <span class="c1"># calculates time travel</span>
+            <span class="n">time_traveled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_time_traveled</span><span class="p">(</span><span class="n">distance_traveled</span><span class="p">)</span>
+
+            <span class="c1"># adds time traveled to total time traveled</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">total_time_traveled</span> <span class="o">+=</span> <span class="n">time_traveled</span>
+
+            <span class="c1"># the stop becomes the current location of the truck</span>
+            <span class="n">current_location</span> <span class="o">=</span> <span class="n">stop</span>
+
+            <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">package</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;delivered&#39;</span> <span class="ow">and</span> <span class="n">package</span><span class="o">.</span><span class="n">address_id</span> <span class="o">==</span> <span class="n">current_location</span><span class="p">:</span>
+                    <span class="c1"># sets the package status to delivered</span>
+                    <span class="n">package</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;delivered&#39;</span>
+
+                    <span class="c1"># sets the package delivery time</span>
+                    <span class="n">package</span><span class="o">.</span><span class="n">delivered_time</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">calculate_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">total_time_traveled</span><span class="p">)</span>
+
+            <span class="c1"># checks if the truck is at the last stop of the delivery route</span>
+            <span class="k">if</span> <span class="n">current_location</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">route</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">route</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># calculates the distance between the last stop and the hub</span>
+                <span class="n">distance_traveled</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">csv_reader</span><span class="o">.</span><span class="n">distance_lookup</span><span class="p">(</span><span class="n">current_location</span><span class="p">,</span> <span class="n">hub</span><span class="p">))</span>
+
+                <span class="c1"># adds distance traveled to truck total miles traveled</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">miles_traveled</span> <span class="o">+=</span> <span class="n">distance_traveled</span>
+
+                <span class="c1"># calculates time travel</span>
+                <span class="n">time_traveled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_time_traveled</span><span class="p">(</span><span class="n">distance_traveled</span><span class="p">)</span>
+
+                <span class="c1"># adds time traveled to total time traveled</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">total_time_traveled</span> <span class="o">+=</span> <span class="n">time_traveled</span></div>
+
+<div class="viewcode-block" id="Truck.load_truck"><a class="viewcode-back" href="../models.html#models.Truck.load_truck">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">load_truck</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">load</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Once the load is on the truck, the packages status are changed.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        load : list</span>
+<span class="sd">            A list of package that the truck need to delivery</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        load : list:</span>
+<span class="sd">            Returns the list with packages</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">package</span> <span class="ow">in</span> <span class="n">load</span><span class="p">:</span>
+            <span class="n">package</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;en route&#39;</span>
+        <span class="k">return</span> <span class="n">load</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">WGUPS ROUTING PROGRAM</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">C950</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Ishmauel Martin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
